@@ -1,0 +1,4 @@
+!#/bin/bash
+### docker run -d --hostname pdfhandler_mq --name pdfhandler_mq rabbitmq
+docker run -it --privileged --rm -p 8888:8888 --link pdfhandler_db --link pdfhandler_mq:rabbitmq thatgreenguy/pdfhandler /bin/bash
+
