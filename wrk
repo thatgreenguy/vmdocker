@@ -9,8 +9,7 @@
 ## docker create --name pdfhandler_db_dvc --volume /data/db mongo
 
 
-## docker run -d --hostname pdfhandler_mq --name pdfhandler_mq rabbitmq
-## docker run -d --name pdfhandler_db mongo
-
+docker run -d --volumes-from pdfhandler_mq_dvc --hostname pdfhandler_mq --name pdfhandler_mq rabbitmq
+docker run -d --volumes-from pdfhandler_db_dvc --name pdfhandler_db mongo
 docker run -it --privileged --rm -p 8888:8888 --link pdfhandler_db --link pdfhandler_mq:rabbitmq thatgreenguy/pdfhandler /bin/bash
 
